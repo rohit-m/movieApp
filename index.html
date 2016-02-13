@@ -2,21 +2,26 @@
 <html ng-app="myApp">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <link rel="stylesheet" type="text/css" href="style.css">
     <!-- Include the AngularJS library -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
 </head>
 <body>
 
 <div class="main" ng-controller="filmController">
-    <input type="text" class="filmname" ng-model="filmName">
-    {{ filmname }}
+    <div class="overlay poster" style="background-image:url({{filmDesc.Poster}});"></div>
+    <div class="inner">
+        <input type="text" class="filmname" ng-model="filmName">
 
-    <div ng-if="details.Response=='true'">
-        <h1>{{ filmDesc.Title }}</h1>
-        <p>{{ filmDesc.imdbRating }}</p>
-        <p>{{ filmDesc.Plot }}</p>
-        <div class="actors"></div>
+        <div class="film-details">
+            <div class="overlay"></div>
+            <div class="inner">
+                <h1>{{ filmDesc.Title }}</h1>
+                <p class="rating">IMDB Rating:{{ filmDesc.imdbRating }}</p>
+                <p>Released: {{ filmDesc.Released }}</p>
+                <p class="plot">{{ filmDesc.Plot }}</p>
+            </div>
+        </div>
     </div>
 </div>
 

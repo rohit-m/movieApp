@@ -1,24 +1,24 @@
 app.controller('filmController', function ($scope, $http) {
+
+    $scope.filmName = "Deadpool";
+
     $scope.$watch('filmName', function () {
         getMovie();
     });
 
-    $scope.search = "Deadpool"
-
     function getMovie() {
         if($scope.filmName != undefined) {
-            console.log($scope.filmName);
             var sterileName = $scope.filmName.replace(" ", "+");
             $http.get("http://www.omdbapi.com/?t=" + sterileName + "").then(function successCallback(response) {
                 $scope.filmDesc = response.data;
-                //console.log(response);
             }, function errorCallBack(response) {
 
             });
         }
-    };
+    }
 });
 
+//To get CORS to work
 angular.module('myApp')
     .config(function ( $httpProvider) {
         delete $httpProvider.defaults.headers.common['X-Requested-With'];
