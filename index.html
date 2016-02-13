@@ -1,0 +1,36 @@
+<!doctype html>
+<html ng-app="myApp">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Include the AngularJS library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+</head>
+<body>
+
+<div class="main" ng-controller="filmController">
+    <input type="text" class="filmname" ng-model="filmName">
+    {{ filmname }}
+
+    <div ng-if="details.Response=='true'">
+        <h1>{{ filmDesc.Title }}</h1>
+        <p>{{ filmDesc.imdbRating }}</p>
+        <p>{{ filmDesc.Plot }}</p>
+        <div class="actors"></div>
+    </div>
+</div>
+
+<!-- Modules -->
+<script src="app.js"></script>
+
+<!-- Controllers -->
+<script src="js/controllers/MainController.js"></script>
+
+<!-- Services -->
+<script src="js/services/movie.js"></script>
+
+<!-- Directives -->
+
+
+</body>
+</html>
