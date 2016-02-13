@@ -6,6 +6,7 @@ body,html {
 }
 
 input {
+    color:#312F2F;
     height: 4em;
     width: 50%;
     position: fixed;
@@ -44,9 +45,16 @@ input:focus {
 }
 
 .main .inner {
-    width:1024px;
+    width:100%;
+    padding:0 15px;
     margin:0 auto;
     height:100%;
+}
+
+@media(min-width:1240px) {
+    .main .inner {
+        width: 1024px;
+    }
 }
 
 .film-details {
@@ -67,13 +75,27 @@ input:focus {
 }
 
 .film-details .inner {
-    padding:2em;
+    margin:0 -30px;
+    padding:0 15px;
     z-index:3;
     position: relative;
+}
+
+@media(min-width:1024px) {
+    .film-details .inner {
+        padding: 2em;
+    }
 }
 
 .poster {
     filter: blur(1px);
     -webkit-filter: blur(1px);
     z-index: 1;
+}
+
+em {
+    text-align:center;
+    color:#FFF;
+    display: block;
+    width:100%;
 }
